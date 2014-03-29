@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64"
+  config.vm.box = "hashicorp/precise64"
 
   config.vm.provider "vmware_fusion" do |v|
    		v.vmx["memsize"] = "1024"
