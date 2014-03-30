@@ -1,12 +1,15 @@
 jenkins:
-    pkgrepo.managed:
-        - name: deb http://pkg.jenkins-ci.org/debian binary/
-        - key_url: http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key
-    pkg.latest:
+    cmd.run:
+        - name: wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+        - name: sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+    pkg:
+        - installed
+    service.running:
         - refresh: True
-        - require:
-          - pkgrepo: jenkins
-      service.running:
         - enable: True
-        - watch:
-          - pkg: jenkins
+        - reload: True
+
+jenkins.plugins:
+    cmd.run:
+        - name: jenkins-cli -s http://localhost:8080 install-plugin githubplugin
+        - name: jenkins-cli -s http://localhost:8080 install-plugin greenballs

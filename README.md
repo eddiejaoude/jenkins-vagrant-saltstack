@@ -1,5 +1,7 @@
-jenkins-vagrant-saltstack-php
-=============================
+# Jenkins Vagrant Saltstack
 
-* jenkins
+* Jenkins
 * plugins
+  * Github Plugin
+  * Green Balls
+
