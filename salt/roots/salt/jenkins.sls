@@ -11,7 +11,7 @@ jenkins:
 
 jenkins.plugin.githubplugin:
     cmd.run:
-        - name: jenkins-cli -s http://localhost:8080 install-plugin github
+        - name: jenkins-cli -s http://localhost:8080 install-plugin git
 jenkins.plugin.greenballs:
     cmd.run:
         - name: jenkins-cli -s http://localhost:8080 install-plugin greenballs
