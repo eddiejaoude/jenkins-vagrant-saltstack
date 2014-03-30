@@ -9,8 +9,12 @@ jenkins:
         - enable: True
         - reload: True
 
-jenkins.plugins:
+jenkins.plugin.githubplugin:
     cmd.run:
-        - name: jenkins-cli -s http://localhost:8080 install-plugin githubplugin
+        - name: jenkins-cli -s http://localhost:8080 install-plugin github
+jenkins.plugin.greenballs:
+    cmd.run:
         - name: jenkins-cli -s http://localhost:8080 install-plugin greenballs
+jenkins.restart:
+    cmd.run:
         - name: jenkins-cli -s http://localhost:8080 restart
