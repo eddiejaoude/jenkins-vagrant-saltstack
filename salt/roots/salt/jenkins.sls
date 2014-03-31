@@ -15,10 +15,11 @@ jenkins.plugin.githubplugin:
 jenkins.plugin.greenballs:
     cmd.run:
         - name: jenkins-cli -s http://localhost:8080 install-plugin greenballs
-jenkins.restart:
-    cmd.run:
-        - name: jenkins-cli -s http://localhost:8080 restart
 
 jenkins.jobs:
     cmd.run:
-        - name: jenkins-cli -s http://localhost:8080 create-job Initial < jenkins/job-config.xml
+        - name: jenkins-cli -s http://localhost:8080 create-job Initial < /var/www/github/jenkins-vagrant-saltstack/jenkins/job-config.xml
+
+jenkins.restart:
+    cmd.run:
+        - name: jenkins-cli -s http://localhost:8080 restart
