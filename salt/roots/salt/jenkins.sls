@@ -21,4 +21,4 @@ jenkins.restart:
 
 jenkins.jobs:
     cmd.run:
-        -name: jenkins-cli -s http://localhost:8080 create-job Initial < jenkins/job-config.xml
+        - name: jenkins-cli -s http://localhost:8080 create-job Initial < jenkins/job-config.xml
