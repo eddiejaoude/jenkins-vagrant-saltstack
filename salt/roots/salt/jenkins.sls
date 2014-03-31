@@ -18,3 +18,7 @@ jenkins.plugin.greenballs:
 jenkins.restart:
     cmd.run:
         - name: jenkins-cli -s http://localhost:8080 restart
+
+jenkins.jobs:
+    cmd.run:
+        -name: jenkins-cli -s http://localhost:8080 create-job Initial < jenkins/job-config.xml
