@@ -1,4 +1,6 @@
 jenkins.job.opg.core.public.domain.model:
-    cmd.run:
-        - name: jenkins-cli -s http://localhost:8080 create-job /var/www/jenkins/jobs/opg-core-public-domain-model.xml
-        
+    cmd:
+        - wait
+        - name: jenkins-cli -s http://localhost:8080 create-job opg-core-public-domain-model < /var/www/jenkins/jobs/opg-core-public-domain-model.xml
+        - watch:
+            - service: jenkins
