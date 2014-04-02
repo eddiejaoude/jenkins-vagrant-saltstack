@@ -3,4 +3,4 @@ base:
     - base
     - git
     - jenkins
-    - jenkins-jobs
+    - jenkins-plugins
