@@ -1,16 +1,19 @@
 vim:
-    pkg:
-        - installed
+  pkg:
+    - installed
 
 htop:
-    pkg:
-        - installed
+  pkg:
+    - installed
 
 iotop:
-    pkg:
-        - installed
+  pkg:
+    - installed
 
 bwm-ng:
-    pkg:
-        - installed
+  pkg:
+    - installed
 
+curl:
+  pkg:
+    - installed
