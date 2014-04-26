@@ -8,3 +8,11 @@ jenkins:
         - refresh: True
         - enable: True
         - reload: True
+
+jenkins-restart:
+    module:
+      - wait
+      - name: service.restart
+      - m_name: jenkins
+      - require:
+          - pkg: jenkins

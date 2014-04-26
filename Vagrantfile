@@ -19,13 +19,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  # config.vm.box_url = "/Users/eddieaboujaoude/Documents/ISOs/ubuntu-12.04.2-server-amd64.iso"
+  config.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network :forwarded_port, guest: 80, host: 9000
-  config.vm.network :forwarded_port, guest: 8080, host: 9080
+  config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 8080, host: 8081
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -55,7 +55,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ## Use all the defaults:
   config.vm.provision :salt do |salt|
 
-    salt.minion_config = "salt/minion"
     salt.run_highstate = true
     salt.minion_config = "salt/minion.conf"
 

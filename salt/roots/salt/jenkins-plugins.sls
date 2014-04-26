@@ -1,20 +1,19 @@
+include:
+  - jenkins
+
 jenkins.plugin.githubplugin:
-    cmd:
-        - wait
+    cmd.run:
         - name: jenkins-cli -s http://localhost:8080 install-plugin git
-        - watch:
-            - service: jenkins
+        - watch_in:
+            - module: jenkins-restart
+        - require:
+            - pkg: jenkins
 
 jenkins.plugin.greenballs:
-    cmd:
-        - wait
+    cmd.run:
         - name: jenkins-cli -s http://localhost:8080 install-plugin greenballs
-        - watch:
-            - service: jenkins
+        - watch_in:
+            - module: jenkins-restart
+        - require:
+            - pkg: jenkins
 
-jenkins.restart:
-    cmd:
-        - wait
-        - name: jenkins-cli -s http://localhost:8080 restart
-        - watch:
-            - service: jenkins
