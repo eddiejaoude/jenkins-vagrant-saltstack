@@ -57,6 +57,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     salt.run_highstate = true
     salt.minion_config = "salt/minion.conf"
+    salt.verbose = true
 
   end
 end

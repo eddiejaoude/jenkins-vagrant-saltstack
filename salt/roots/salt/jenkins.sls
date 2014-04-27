@@ -11,6 +11,12 @@ jenkins:
     - enable: True
     - watch:
       - pkg: jenkins
+      
+jenkins-cli:
+  pkg.latest:
+    - refresh: True
+    - require:
+      - pkgrepo: jenkins
      
 jenkins-restart:
   module:
