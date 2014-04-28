@@ -4,9 +4,10 @@ include:
 
 update.jenkins.update.centre:
   cmd.run:
-    - name: "curl -L http://updates.jenkins-ci.org/update-center.json | sed '1d;$d' | curl -X POST -H 'Accept: application/json' -d @- http://localhost:8080/updateCenter/byId/default/postBack"
+    - name: "sleep 15 && curl -L http://updates.jenkins-ci.org/update-center.json | sed '1d;$d' | curl -X POST -H 'Accept: application/json' -d @- http://localhost:8080/updateCenter/byId/default/postBack"
     - require:
       - pkg: curl
+      - service: jenkins
       
 {% for pluginName in ['git', 'postbuild-task', 'greenballs'] %}
 
