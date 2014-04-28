@@ -12,11 +12,14 @@ jenkins:
     - watch:
       - pkg: jenkins
       
-jenkins-cli:
-  pkg.latest:
+/usr/bin/jenkins-cli.jar:
+  file.managed:
+    - source: salt://files/jenkins-cli.jar
     - refresh: True
+    - mode: 755
     - require:
       - pkgrepo: jenkins
+      - pkg: jenkins
      
 jenkins-restart:
   module:

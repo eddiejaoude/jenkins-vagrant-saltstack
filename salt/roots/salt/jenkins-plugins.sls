@@ -12,12 +12,12 @@ update.jenkins.update.centre:
 
 jenkins.plugin.{{ pluginName }}:
   cmd.run:
-    - name: jenkins-cli -s http://localhost:8080 install-plugin {{ pluginName }}
+    - name: java -jar /usr/bin/jenkins-cli.jar -s http://localhost:8080 install-plugin {{ pluginName }}
     - watch_in:
       - module: jenkins-restart
     - require:
       - pkg: jenkins
-      - pkg: jenkins-cli
+      - file: /usr/bin/jenkins-cli.jar
       - cmd: update.jenkins.update.centre
 
 {% endfor %}
